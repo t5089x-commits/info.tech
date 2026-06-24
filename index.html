@@ -3,333 +3,648 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>資訊科技教師養成歷程 | 陳楷翔</title>
+<title>資訊科技教師養成歷程 ｜ 陳楷翔</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
 <style>
 :root{
-  --bg:#0b1020;
-  --card:#151c33;
-  --text:#eef2ff;
-  --accent:#6d7cff;
-  --accent2:#a855f7;
+  --bg:#18130F;
+  --bg2:#1f1812;
+  --card:#221B15;
+  --card2:#2a2118;
+  --line:#3a2f24;
+  --text:#F1E9DD;
+  --muted:#b7a998;
+  --accent:#E08A45;
+  --accent2:#d2762f;
+  --accent3:#82A6AC;
+  --maxw:1080px;
 }
-
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
   margin:0;
-  font-family:system-ui,sans-serif;
-  background:var(--bg);
+  font-family:"Noto Sans TC",system-ui,"PingFang TC","Microsoft JhengHei",sans-serif;
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(224,138,69,.14), transparent 60%),
+    radial-gradient(900px 500px at 0% 10%, rgba(130,166,172,.10), transparent 55%),
+    var(--bg);
   color:var(--text);
-  scroll-behavior:smooth;
+  line-height:1.85;
+  -webkit-font-smoothing:antialiased;
 }
 
+/* NAV */
 nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  background:rgba(11,16,32,.9);
-  backdrop-filter:blur(10px);
+  position:fixed;top:0;left:0;width:100%;
+  background:rgba(24,19,15,.84);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
   z-index:999;
 }
-
+nav .inner{
+  max-width:var(--maxw);margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 20px;
+}
+nav .brand{font-weight:800;letter-spacing:.5px}
+nav .brand span{color:var(--accent2)}
 nav ul{
-  display:flex;
-  gap:20px;
-  justify-content:center;
-  list-style:none;
-  padding:15px;
-  margin:0;
-  flex-wrap:wrap;
+  display:flex;gap:6px;list-style:none;margin:0;padding:0;flex-wrap:wrap;
 }
-
 nav a{
-  color:white;
-  text-decoration:none;
+  color:var(--muted);text-decoration:none;font-size:.92rem;
+  padding:7px 11px;border-radius:9px;transition:.2s;
 }
+nav a:hover{color:#fff;background:var(--card2)}
 
+/* HERO */
 .hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:80px 20px;
-  background:linear-gradient(135deg,#1e293b,#312e81);
+  min-height:100vh;display:flex;align-items:center;
+  padding:120px 20px 80px;
 }
-
-.hero h1{font-size:3rem}
-
-section{
-  padding:80px 10%;
+.hero-inner{max-width:var(--maxw);margin:0 auto;width:100%}
+.eyebrow{
+  display:inline-block;font-size:.8rem;letter-spacing:3px;
+  color:var(--accent3);border:1px solid var(--line);
+  padding:6px 14px;border-radius:30px;margin-bottom:24px;
 }
+.hero h1{
+  font-size:clamp(2.6rem,7vw,4.6rem);line-height:1.1;margin:0 0 10px;
+  font-weight:800;letter-spacing:1px;
+}
+.hero h1 .grad{
+  background:linear-gradient(100deg,var(--accent),var(--accent2) 55%,var(--accent3));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero .role{font-size:1.15rem;color:var(--muted);margin:0 0 24px}
+.hero .lead{max-width:680px;color:#e3d8c8;font-size:1.05rem}
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.tag{
+  background:var(--card);border:1px solid var(--line);
+  padding:8px 15px;border-radius:30px;font-size:.86rem;color:var(--muted);
+}
+.tag i{color:var(--accent);margin-right:6px}
 
-h2{color:#9fb4ff}
+/* SECTION */
+section{padding:90px 20px;border-top:1px solid rgba(58,47,36,.6)}
+.wrap{max-width:var(--maxw);margin:0 auto}
+.sec-head{margin-bottom:38px}
+.sec-num{font-size:.85rem;letter-spacing:3px;color:var(--accent2);font-weight:700}
+.sec-head h2{font-size:clamp(1.7rem,4vw,2.4rem);margin:8px 0 6px;font-weight:800}
+.sec-head p{color:var(--muted);margin:0;max-width:700px}
 
 .card{
-  background:var(--card);
-  padding:25px;
-  border-radius:16px;
-  margin-top:20px;
-  line-height:1.8;
+  background:linear-gradient(180deg,var(--card),var(--bg2));
+  border:1px solid var(--line);
+  padding:30px;border-radius:18px;margin-top:20px;
+}
+.card h3{margin:0 0 12px;font-size:1.2rem;color:#fff}
+.card h3 i{color:var(--accent3);margin-right:8px}
+.card p{color:#e3d8c8;margin:0 0 14px}
+.card p:last-child{margin-bottom:0}
+.muted{color:var(--muted)}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:820px){.grid2,.grid3{grid-template-columns:1fr}}
+
+.meta{
+  display:flex;flex-wrap:wrap;gap:8px 22px;margin:0 0 22px;
+  color:var(--muted);font-size:.9rem;
+}
+.meta b{color:var(--accent3);font-weight:600}
+
+/* mini cards */
+.mini{
+  background:var(--card2);border:1px solid var(--line);
+  border-radius:14px;padding:20px;
+}
+.mini h4{margin:0 0 8px;font-size:1.02rem;display:flex;align-items:center;gap:8px}
+.mini h4 i{color:var(--accent)}
+.mini p{color:#e3d8c8;font-size:.94rem;margin:0}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0 0}
+.chip{
+  background:rgba(224,138,69,.13);border:1px solid rgba(224,138,69,.38);
+  color:#f3cda4;padding:6px 13px;border-radius:30px;font-size:.85rem;
+}
+.chip.alt{background:rgba(130,166,172,.13);border-color:rgba(130,166,172,.4);color:#bfdadd}
+.chip.warn{background:rgba(210,118,47,.13);border-color:rgba(210,118,47,.4);color:#f1c39a}
+
+ul.clean{margin:10px 0 0;padding-left:0;list-style:none}
+ul.clean li{
+  position:relative;padding:6px 0 6px 26px;color:#e3d8c8;
+}
+ul.clean li::before{
+  content:"";position:absolute;left:4px;top:15px;
+  width:7px;height:7px;border-radius:50%;
+  background:linear-gradient(120deg,var(--accent),var(--accent2));
 }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:6px}
+@media(max-width:820px){.stats{grid-template-columns:1fr 1fr}}
+.stat{
+  background:var(--card2);border:1px solid var(--line);
+  border-radius:14px;padding:20px;text-align:center;
 }
-
-.timeline{
-  border-left:3px solid var(--accent);
-  padding-left:20px;
+.stat .n{
+  font-size:2rem;font-weight:800;
+  background:linear-gradient(120deg,var(--accent3),var(--accent));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
 }
+.stat .l{color:var(--muted);font-size:.85rem;margin-top:4px}
 
-.timeline div{
-  margin:15px 0;
+/* reflection Q&A */
+.qa{
+  background:linear-gradient(180deg,var(--card),var(--bg2));
+  border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:16px;padding:26px 28px;margin-top:18px;
 }
+.qa .q{
+  display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;
+}
+.qa .q .badge{
+  flex:none;width:34px;height:34px;border-radius:10px;
+  background:rgba(224,138,69,.16);border:1px solid rgba(224,138,69,.42);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;color:#f3cda4;font-size:.95rem;
+}
+.qa .q h3{margin:0;font-size:1.08rem;color:#fff;line-height:1.5}
+.qa .a{color:#e3d8c8}
+.qa .a p{margin:0 0 12px}
+.qa .a p:last-child{margin-bottom:0}
 
+blockquote{
+  margin:16px 0;padding:14px 18px;border-radius:12px;
+  background:rgba(130,166,172,.08);border:1px solid rgba(130,166,172,.28);
+  color:#d2e4e6;font-style:normal;
+}
+blockquote i{color:var(--accent3);margin-right:8px}
+
+/* footer */
 footer{
-  text-align:center;
-  padding:30px;
-  background:#111827;
+  text-align:center;padding:50px 20px;color:var(--muted);
+  border-top:1px solid var(--line);font-size:.9rem;
 }
 
 .topbtn{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  background:var(--accent);
-  color:white;
-  border:none;
-  padding:12px 15px;
-  border-radius:50%;
-  cursor:pointer;
+  position:fixed;right:22px;bottom:22px;
+  background:linear-gradient(120deg,var(--accent),var(--accent2));
+  color:#fff;border:none;width:48px;height:48px;
+  border-radius:50%;cursor:pointer;font-size:1rem;
+  box-shadow:0 8px 24px rgba(224,138,69,.4);z-index:50;
 }
 
-.fade{
-  opacity:0;
-  transform:translateY(30px);
-  transition:1s;
+.fade{opacity:0;transform:translateY(28px);transition:.8s ease}
+.fade.show{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .fade{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
 }
-
-.fade.show{
-  opacity:1;
-  transform:none;
-}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent3);outline-offset:3px}
 </style>
 </head>
-
 <body>
 
 <nav>
-<ul>
-<li><a href="#home">首頁</a></li>
-<li><a href="#speech">專題演講</a></li>
-<li><a href="#admin">資訊行政</a></li>
-<li><a href="#teaching">AI教學</a></li>
-<li><a href="#service">服務學習</a></li>
-<li><a href="#reflection">心得展望</a></li>
-</ul>
+  <div class="inner">
+    <div class="brand">陳楷翔<span>｜Portfolio</span></div>
+    <ul>
+      <li><a href="#home">首頁</a></li>
+      <li><a href="#speech">專題演講</a></li>
+      <li><a href="#admin">行政見習</a></li>
+      <li><a href="#teaching">AI 教學</a></li>
+      <li><a href="#service">服務學習</a></li>
+      <li><a href="#reflection">課程反思</a></li>
+    </ul>
+  </div>
 </nav>
 
-<!-- 首頁（保留原始介紹） -->
-<section id="home" class="hero">
-<div>
-<h1>陳楷翔</h1>
-<h3>資訊科技教師養成歷程</h3>
-<p>高中資訊科技教師｜資訊教育工作者｜技職行政管理碩士班研究生</p>
-<p>長期投入程式設計教育、資訊科技課程設計與 AI 教學應用，探索人機協作與未來教育的可能性。</p>
-</div>
+<!-- HERO -->
+<section id="home" class="hero" style="border-top:none">
+  <div class="hero-inner">
+    <span class="eyebrow">114 學年度 · 資訊科技科教材教法及教學實習</span>
+    <h1>陳楷翔<br><span class="grad">資訊科技教師養成歷程</span></h1>
+    <p class="role">高中資訊科技教師 ｜ 整天在玩 AI 工具的人 ｜ 技職行政管理碩士在讀</p>
+    <p class="lead">
+      這學期跑了一輪：聽專題演講、自己寫教案、微型教學，還去彰化高中做行政見習跟入班教學，
+      也帶了線西國中的服務學習營隊。這頁算是我邊做邊記下來的心得——在 AI 一直冒出新東西的現在，
+      我重新想了一下資訊科技老師到底在幹嘛。其實不只是教程式，教育、行政、科技這三塊好像都得碰。
+    </p>
+    <div class="tags">
+      <span class="tag"><i class="fas fa-code"></i>程式設計教育</span>
+      <span class="tag"><i class="fas fa-robot"></i>AI 融入教學</span>
+      <span class="tag"><i class="fas fa-shield-halved"></i>校園資訊安全</span>
+      <span class="tag"><i class="fas fa-diagram-project"></i>TPACK 實踐</span>
+    </div>
+  </div>
 </section>
 
 <!-- 專題演講 -->
 <section id="speech" class="fade">
-<h2>專題演講與教師專業成長</h2>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">01 ／ 專題演講</div>
+      <h2>邁向資訊科技教師之路</h2>
+      <p>聽完連老師講他怎麼一路考上正式教師，我才發現「當老師」這件事，真的是慢慢累積來的。</p>
+    </div>
 
-<div class="card">
-<h3>演講重點整理</h3>
+    <div class="card">
+      <div class="meta">
+        <span><b>講題</b>　邁向資訊科技教師之路</span>
+        <span><b>日期</b>　115 年 3 月 9 日</span>
+        <span><b>講師</b>　國立員林高中　連英捷老師</span>
+      </div>
 
-<p>
-本次演講由員林高中連英捷老師分享自身從代理教師到正式教師的歷程，內容涵蓋教師甄選準備、資訊科技教師能力培養以及教學現場實務經驗。
-</p>
+      <h3><i class="fas fa-bullhorn"></i>老師聊了哪些</h3>
+      <p>
+        老師講了不少教甄的眉角。其實各校考法差很多，有些國中只考教育學程，但高中職幾乎不看教育科目，
+        反而很吃程式設計、網路這種專業實作。偏鄉小校更妙，師資不夠的時候一個人要身兼好幾科——
+        數學老師可能還要去上童軍、家政、表演藝術，跨科教學根本是日常。他也提到，
+        手上如果有導師或行政經驗，考的時候會明顯加分。
+      </p>
+      <p>
+        至於程式能力，老師講得很直接：想當資訊老師，這個就是門檻，Python、C/C++ 都得會，
+        現在不少學生自己在拚 APCS。備課素材倒是不用從零生，學科中心有很多開放課程教材，
+        演算法、遞迴那些都有現成的，蠻佛心。
+      </p>
 
-<p>
-講師特別提到，資訊科技教師除了需要具備教育專業知能外，更必須持續精進程式設計能力與資訊科技相關專業知識，以因應課程內容與科技發展的快速變化。
-</p>
-
-<h3>我的反思</h3>
-
-<p>
-老師分享自己歷經多年教師甄選的經驗讓我印象深刻。過去常常會認為教師甄選只要準備好考試內容即可，但透過這次演講，我發現教師專業能力其實是一個長期累積的過程。
-</p>
-
-<p>
-除了專業知識外，教學經驗、班級經營能力、行政工作歷練以及面對挫折的韌性，都會影響一位教師未來的發展。
-</p>
-
-<p>
-身為目前已經在高中教學現場服務的資訊教師，我也深刻感受到資訊科技領域變化速度極快。從過去的程式設計教育到近年生成式 AI 的快速發展，教師若停止學習，很容易與產業及學生需求脫節。
-</p>
-
-<p>
-因此未來除了持續精進 Python、資料結構與演算法等專業能力之外，也希望能持續關注人工智慧、資訊安全及數位學習等新興議題。
-</p>
-</div>
+      <h3 style="margin-top:26px"><i class="fas fa-lightbulb"></i>我的一點想法</h3>
+      <p>
+        老實說，最打到我的不是那些考試技巧，而是連老師根本不是一開始就考上的。
+        他考了好多年，當過代理、好幾次連複試都沒進，有些實作甚至考得蠻慘。
+        但他後來開始認真盤點自己哪裡弱，發現程式實作不夠強，就每天逼自己寫程式、甚至跑去補習，
+        一點一點補起來。聽完我才真的有感，準備教甄不是考前衝刺就有用，是一場長期的事。
+      </p>
+      <p>
+        我也蠻喜歡他解釋抽象概念的方式，像是用動漫或故事去講「變數」，學生比較聽得進去。
+        後來有同學問了一個經典問題：學生對課就是沒興趣怎麼辦？老師其實也沒給標準答案。
+        我自己在課堂上的做法，是盡量換不同風格去對到不同學生的胃口，畢竟一種講法不可能全班都買單。
+      </p>
+      <p class="muted">
+        身為已經在現場的資訊老師，我特別有感的是這個領域變太快了。今天你不學，明天大概就跟學生、
+        跟業界脫節。所以程式、AI、資安這些，老實說真的得一直追。
+      </p>
+    </div>
+  </div>
 </section>
 
-<!-- 行政 -->
+<!-- 行政見習 -->
 <section id="admin" class="fade">
-<h2>資訊行政見習與校務資訊實務</h2>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">02 ／ 行政見習</div>
+      <h2>彰化高中　資訊組長到底在忙什麼</h2>
+      <p>3 月底跑去彰化高中圖書館見習，才知道資訊組長一天到晚在忙什麼，範圍比我原本想的大很多。</p>
+    </div>
 
-<div class="card">
+    <div class="grid2">
+      <div class="mini">
+        <h4><i class="fas fa-book-open-reader"></i>科技輔助自主學習計畫</h4>
+        <p>曾馨霈主任說，資訊媒體組其實是掛在圖書館底下的，還會辦 Z1～Z3 這種跟 AI 有關的研習。原來校內的數位學習，是從圖書館這邊長出來的。</p>
+      </div>
+      <div class="mini">
+        <h4><i class="fas fa-sitemap"></i>資訊組長工作內涵</h4>
+        <p>方羿云組長攤開來講，工作橫跨數位學習精進（生生用平板）、四學×科技、均質化計畫、各種非核心系統，外加隨時要支援老師處理電腦問題，蠻雜的。</p>
+      </div>
+      <div class="mini">
+        <h4><i class="fas fa-network-wired"></i>校園網路架構與管理</h4>
+        <p>要開資通系統審查會議、設防火牆規則、管固定 IP 跟 DHCP，還得配合上級資安稽核（實地加書面）。組長說三五年內大概就會被政府查一次，聽起來壓力不小。</p>
+      </div>
+      <div class="mini">
+        <h4><i class="fas fa-clipboard-check"></i>順便聊到教甄</h4>
+        <p>地方聯招大概 4～6 月、全國 5～6 月。初試有選擇加手寫（程式、資料結構、演算法、AI 都會考），複試還要上機（Graph、Tree、BFS／DFS、DP）跟 15、20 分鐘試教。</p>
+      </div>
+    </div>
 
-<p>
-本次行政見習讓我重新認識資訊組長的工作內容。過去對資訊組長的印象多半停留在維修電腦、處理網路問題等技術層面，但實際了解後才發現，資訊組長的工作範圍遠比想像中廣泛。
-</p>
-
-<p>
-除了校園網路維運之外，還包含資訊安全管理、數位學習推動、校內系統維護、行政會議召開以及教育部相關計畫執行等工作。
-</p>
-
-<p>
-尤其在資訊安全日益受到重視的今日，校園資訊系統管理已經不只是技術問題，更涉及制度建立與風險管理。
-</p>
-
-<h3>網路管理反思</h3>
-
-<p>
-方組長提到：「完全不懂網路的人也能擔任資訊組長」這句話讓我印象深刻。
-</p>
-
-<p>
-因為資訊組長最重要的能力不一定是技術，而是持續學習與解決問題的能力。網路設備可以透過研習學習，設備問題可以透過廠商協助，但面對突發事件時願意主動處理與持續精進，才是資訊行政人員最重要的核心能力。
-</p>
-
-</div>
+    <div class="card">
+      <h3><i class="fas fa-lightbulb"></i>關於網路管理，我記最久的一句話</h3>
+      <blockquote>
+        <i class="fas fa-quote-left"></i>「完全的網路小白，也可以擔任資訊組長。」— 方羿云組長
+      </blockquote>
+      <p>
+        這句話的意思其實是：設備可以靠研習慢慢學、壞了還能找廠商，資訊組長真正關鍵的，
+        反而是那種「出事願意主動扛、然後一直學」的態度。
+      </p>
+      <p>
+        實際看下來，幫老師排電腦狀況技術難度通常都不高，比較需要的是耐心——
+        畢竟不是每位老師都對電腦很熟。而且這份工作也不只是按鍵盤，背後還有開審查會議、
+        落實資安規範這些行政流程。對我來說，這趟見習比較像是提醒自己：從現在就該開始碰一點網路架構、
+        IP、資安的基本功，不要等到真的要用才在那邊抱佛腳。
+      </p>
+    </div>
+  </div>
 </section>
 
-<!-- AI教學 -->
+<!-- AI 教學 -->
 <section id="teaching" class="fade">
-<h2>AI融入程式設計教學實踐</h2>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">03 ／ 入班教學</div>
+      <h2>Vibe Coding 體驗課　跟 AI 一起寫程式</h2>
+      <p>跟林宗翰一起設計、在彰化高中上的 100 分鐘體驗課。重點不是教學生叫 AI 寫程式，而是學會跟 AI 一起做，然後自己判斷、測試、抓蟲。</p>
+    </div>
 
-<div class="card">
+    <div class="card">
+      <div class="meta">
+        <span><b>教學時間</b>　100 分鐘（2 節 + 中場休息）</span>
+        <span><b>教學方法</b>　講述、示範、探究、實作、形成性評量</span>
+        <span><b>核心素養</b>　科 S-U-A2／A3／B1</span>
+      </div>
 
-<h3>教學理念</h3>
+      <h3><i class="fas fa-compass-drafting"></i>當初是怎麼想的</h3>
+      <p>
+        整堂課我用一個問題開場：「AI 都會寫程式了，那我們還需要學嗎？」這題沒有要嚇人，
+        是想讓學生自己去想人跟 AI 各做什麼。我的答案大概是——AI 是工具、最後判斷的還是人，
+        Prompt 寫得好不好直接決定品質，而會不會抓蟲，到現在還是很重要。
+      </p>
 
-<p>
-隨著生成式人工智慧快速發展，學生未來在程式設計領域中勢必會與 AI 工具共同工作。
-</p>
+      <div class="grid3" style="margin-top:18px">
+        <div class="mini">
+          <h4><i class="fas fa-keyboard"></i>Prompt 五要素</h4>
+          <p>任務目標、使用語言、功能需求、限制條件、輸出格式。課堂上會故意拿模糊跟清楚的 Prompt 對比，差超多。</p>
+        </div>
+        <div class="mini">
+          <h4><i class="fas fa-rotate"></i>生成 → 測試 → 修正</h4>
+          <p>讓學生丟 Prompt 生出程式、跑跑看記下問題，再回去改 Prompt 或改程式，至少要完整跑過一輪除錯。</p>
+        </div>
+        <div class="mini">
+          <h4><i class="fas fa-users-gear"></i>差異化設計</h4>
+          <p>做太快的給進階題，興趣缺缺的給「挖空提示詞」當鷹架。全程用 Google 表單記錄，方便看他們卡在哪。</p>
+        </div>
+      </div>
+    </div>
 
-<p>
-因此本次課程設計並非單純教導學生如何使用 AI 產生程式碼，而是希望學生理解：
-</p>
+    <div class="card">
+      <h3><i class="fas fa-chart-simple"></i>學生實際做出來的東西</h3>
+      <p class="muted">這堂課最有趣的，就是看學生丟完 Prompt 之後生出來的成品，種類比我預期的還多：</p>
+      <div class="stats">
+        <div class="stat"><div class="n">30+</div><div class="l">份學習單回覆</div></div>
+        <div class="stat"><div class="n">5</div><div class="l">個 Prompt 要素</div></div>
+        <div class="stat"><div class="n">0–5+</div><div class="l">次來回除錯</div></div>
+        <div class="stat"><div class="n">20+</div><div class="l">種遊戲主題</div></div>
+      </div>
+      <div class="chips">
+        <span class="chip">猜數字</span>
+        <span class="chip">踩地雷</span>
+        <span class="chip">2048</span>
+        <span class="chip">五子棋</span>
+        <span class="chip">圍棋</span>
+        <span class="chip">西洋棋</span>
+        <span class="chip">貪食蛇</span>
+        <span class="chip">抽卡模擬器</span>
+        <span class="chip">寶可夢</span>
+        <span class="chip">射擊閃避</span>
+        <span class="chip">英文單字</span>
+        <span class="chip">恐龍跑酷</span>
+      </div>
 
-<ul>
-<li>AI 是工具</li>
-<li>人類負責判斷</li>
-<li>Prompt 決定品質</li>
-<li>除錯能力依然重要</li>
-</ul>
+      <div class="grid2" style="margin-top:22px">
+        <div class="mini">
+          <h4><i class="fas fa-circle-check" style="color:var(--accent3)"></i>學生覺得的好處</h4>
+          <p>快、方便，還能做出自己原本寫不出來的東西。需要一大段程式的時候，先讓 AI 生、再自己慢慢 debug。</p>
+        </div>
+        <div class="mini">
+          <h4><i class="fas fa-triangle-exclamation" style="color:var(--accent)"></i>學生自己也擔心的</h4>
+          <p>看不懂 AI 寫的程式、出錯找不到、太依賴會變懶、理解力下降，甚至生出之後沒人想維護的「屎山」。</p>
+        </div>
+      </div>
+    </div>
 
-<h3>教學反思</h3>
-
-<p>
-實際設計課程後，我發現學生對 AI 工具具有高度興趣，但同時也容易產生錯誤認知：「AI 幫我寫完就代表完成了」。
-</p>
-
-<p>
-因此課程中特別加入程式測試與除錯活動，讓學生理解真正重要的不是產生程式碼，而是理解程式碼。
-</p>
-
-<p>
-這也是未來 AI 時代資訊教育的重要方向。
-</p>
-
-</div>
+    <div class="card">
+      <h3><i class="fas fa-lightbulb"></i>上完之後的想法</h3>
+      <p>
+        實際上完才發現，學生對 AI 真的超有興趣，但很容易掉進一個坑：覺得「AI 幫我生完＝做完了」。
+        看學習單也很有意思，程式一出錯，多數人第一反應是「我 Prompt 沒寫清楚」或「我根本沒看懂這段」，
+        但幾乎所有人都同意一件事：AI 是來幫忙產生程式碼的，最後還是得人來判斷跟修。
+      </p>
+      <p>
+        這其實就是我想讓他們帶走的東西——重點不是生出程式碼，是看得懂程式碼。
+        所以我才硬塞了測試跟除錯的環節，讓「能不能看懂、能不能修對」變成這堂課的主角。
+        我覺得在 AI 時代，這部分才是資訊課真正該花時間的地方。
+      </p>
+      <p class="muted">
+        （我自己私下也會用 Gemini，或在本地端架 Ollama 加 Open WebUI 來玩，
+        所以蠻能體會學生那種「一直想叫 AI 再幫我加一點功能」的心情，停不下來。）
+      </p>
+    </div>
+  </div>
 </section>
 
 <!-- 服務學習 -->
 <section id="service" class="fade">
-<h2>在地化資訊服務學習方案</h2>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">04 ／ 服務學習</div>
+      <h2>把在地的東西塞進程式課</h2>
+      <p>線西國中的服務學習營隊，主題是線西鄉的肉粽角沙灘，把在地特色跟環境議題放進程式課裡。</p>
+    </div>
 
-<div class="card">
+    <div class="card">
+      <h3><i class="fas fa-palette"></i>當初的構想</h3>
+      <p>
+        課程是用 Scratch 做打磚塊，讓學生一邊練程式邏輯跟運算思維，一邊透過角色跟背景設計，
+        去認識海洋廢棄物這件事。想法是——與其乾講語法，不如拿在地的沙灘跟環境議題當切入點，學生會比較有感。
+      </p>
 
-<h3>設計理念</h3>
+      <h3 style="margin-top:24px"><i class="fas fa-user-pen"></i>我比較有參與的部分</h3>
+      <p>
+        老實說，營隊當天我剛好有工作要處理，沒能到現場，這點蠻可惜的。不過整個籌備過程我都有一起參與——
+        重新把 Scratch 的積木語法複習了一輪，也研究了不少向量圖製作的細節（這部分其實比想像中講究），
+        還跟同學來回討論課程內容，過程中收穫蠻多。
+      </p>
 
-<p>
-本次課程以彰化線西鄉肉粽角沙灘為主題，將地方特色與程式設計課程結合。
-</p>
-
-<p>
-學生透過 Scratch 打磚塊遊戲製作，不僅學習程式邏輯與運算思維，也能認識海洋廢棄物對環境造成的影響。
-</p>
-
-<h3>教學反思</h3>
-
-<p>
-我認為資訊教育不應只停留在程式語法的學習。若能將在地文化、環境教育及社會議題融入課程，學生更容易產生學習動機與情感連結。
-</p>
-
-<p>
-本次課程中，學生除了完成 Scratch 遊戲之外，也能透過角色設計與背景創作，重新認識自己所居住的地方。
-</p>
-
-<p>
-當學生開始主動討論海洋垃圾、風力發電等議題時，其實已經達到跨領域學習的目標。
-</p>
-
-</div>
+      <h3 style="margin-top:24px"><i class="fas fa-lightbulb"></i>一點收穫</h3>
+      <p>
+        對我來說，這次比較大的收穫反而在備課本身。要把一個遊戲做得讓國中生玩得起來、又能順順帶到環境議題，
+        中間要顧的細節比表面上多。雖然沒能親眼看到學生上課的反應有點可惜，但光是跟同學一起把這套課磨出來，
+        就讓我對「資訊課可以怎麼跟在地、跟議題結合」有了比較具體的想法。未來如果有機會，我也想自己完整帶一次。
+      </p>
+    </div>
+  </div>
 </section>
 
-<!-- 結論 -->
+<!-- 課程反思與回饋 -->
 <section id="reflection" class="fade">
-<h2>課程反思與未來展望</h2>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">05 ／ 課程反思與回饋</div>
+      <h2>整學期下來，老實說一下</h2>
 
-<div class="card">
+    </div>
 
-<h3>整體反思</h3>
+    <!-- Q1 -->
+    <div class="qa">
+      <div class="q">
+        <span class="badge">1</span>
+        <h3>修課前後，我對「當資訊科技老師」的看法有什麼變化？</h3>
+      </div>
+      <div class="a">
+        <p>
+          剛開始我對資訊科技教學的理解蠻單純的，就是「把語法教好、把技術講清楚」這樣。
+          上完這學期才發現，能搞的東西比我想的多很多。
+        </p>
+        <p>
+          教材設計上，我學會從核心素養出發，把學習目標拆成認知、技能、態度三塊來想（Vibe Coding 那份教案就是這樣做的）；
+          教學方法上，比較能看狀況在講述、示範、探究、實作之間切換；評量也不再只看最後交出來的成品，
+          而是用 Google 表單去看學生的學習過程；班級互動更現實，我會先預想「萬一沒人舉手怎麼辦」，
+          再針對程度落差先準備好不同的鷹架。
+        </p>
+        <p class="muted">對我來說，「教學專業」這個詞，從一個有點空的名詞，變成一套我真的能去設計、觀察、再修正的東西。</p>
+      </div>
+    </div>
 
-<p>
-透過本學期的課程，我對資訊科技教師的角色有了更完整的理解。過去認為資訊科技教師的核心工作在於教學與技術能力，但經過專題演講、行政見習、入班教學與服務學習後，我逐漸發現資訊教師需要兼具教育、行政與科技三個面向。
-</p>
+    <!-- Q2 -->
+    <div class="qa">
+      <div class="q">
+        <span class="badge">2</span>
+        <h3>哪些活動最讓我有成長的感覺？</h3>
+      </div>
+      <div class="a">
+        <p>
+          幫助最大的，老實說都是那些把我從「學生」推去當「設計者跟實作者」的活動。
+        </p>
+        <p>
+          自己寫教案是最扎實的一關，因為你得從素養、目標、流程到差異化全部想過一遍，沒辦法含糊帶過。
+          彰化高中的行政見習讓我看到資訊組長真實的工作版圖；入班教學則是直接帶三十幾個學生用 AI 寫程式，
+          現場跟想像的落差一次補滿。線西國中的服務學習營隊讓我去想資訊課跟社會議題能怎麼接；
+          觀議課跟微型教學則是在被人看、被人回饋的過程裡，慢慢把自己的教學語言跟節奏調順。
+        </p>
+      </div>
+    </div>
 
-<p>
-在教學面向，需要思考如何讓學生願意學習並理解抽象概念。
-在行政面向，需要協助推動校務資訊化與資訊安全管理。
-在科技面向，則必須持續學習新技術。
-</p>
+    <!-- Q3 -->
+    <div class="qa">
+      <div class="q">
+        <span class="badge">3</span>
+        <h3>這門課怎麼影響我對 TPACK（科技 × 教學法 × 學科內容）的理解？</h3>
+      </div>
+      <div class="a">
+        <p>
+          Vibe Coding 這堂課大概是我把 TPACK 玩得最完整的一次。科技的部分是 ChatGPT 這類 AI 工具；
+          教學法用的是探究式提問加上「生成 → 測試 → 修正」的循環；學科內容則是 Python、Prompt 寫法跟除錯這些。
+        </p>
+        <p>
+          舉個實際的例子：彰化高中的學生之前學過 C++，所以我故意在課堂帶到 Python 跟 C 語法很像的地方，
+          降低他們的遷移成本。這個小決定其實就是把學科內容、學生的舊經驗、AI 工具三個東西兜在一起。
+          TPACK 對我來說已經不是要背的框架，而是備課時真的會做的取捨。
+        </p>
+      </div>
+    </div>
 
-<h3>未來展望</h3>
+    <!-- Q4 -->
+    <div class="qa">
+      <div class="q">
+        <span class="badge">4</span>
+        <h3>大學跟高中、國中一起設計的課，怎麼拉近理論跟實務？還有什麼卡關的地方？</h3>
+      </div>
+      <div class="a">
+        <p>
+          這種大學跟高中、國中一起設計的安排，最大的好處就是把我直接丟進真實現場，
+          而現場常常跟想像對不上。比如學生對 AI 生出來的程式其實看不太懂、AI 用了某個套件他們根本沒學過、
+          線上 IDE 又不支援 tkinter 圖形介面，程式直接跑不動——這些「不如預期」反而是最值錢的。
+        </p>
+        <p class="muted">
+          當然還是有些卡關。入班教學時間就那麼一點，很難長期追蹤學生到底進步多少；遇到程度差很大的班，
+          差異化教材也還需要再累積；至於教甄的實戰（上機、試教）演練機會，老實說我自己也想再多一些。
+        </p>
+      </div>
+    </div>
 
-<ul>
-<li>深化 AI 融入教學應用</li>
-<li>提升資訊安全專業知能</li>
-<li>精進程式設計與演算法能力</li>
-<li>發展跨領域資訊課程</li>
-<li>持續投入教育研究與教學創新</li>
-</ul>
+    <!-- Q5 -->
+    <div class="qa">
+      <div class="q">
+        <span class="badge">5</span>
+        <h3>跑完服務學習之後，我對教師的社會責任有什麼新的想法？</h3>
+      </div>
+      <div class="a">
+        <p>
+          線西國中那次讓我比較具體感受到，老師要顧的不只是把進度教完。
+          當我把肉粽角沙灘、海洋垃圾、風力發電這些放進程式課，學生的動力跟投入明顯不一樣。
+          資訊課其實可以當一個入口，讓他們開始關心自己生活的環境，再延伸去想一些社會議題。
+        </p>
+        <p>
+          這也讓我對「學生需求」這件事更敏感一點——不同地區、不同底子的學生，要的不是同一份教材，
+          而是一份真的有把他們考慮進去的課。
+        </p>
+      </div>
+    </div>
 
-<p>
-我期許自己未來不只是教授資訊科技知識的教師，更能成為引導學生面對未來科技社會的重要教育工作者。
-</p>
+    <!-- Q6 -->
+    <div class="qa">
+      <div class="q">
+        <span class="badge">6</span>
+        <h3>這門課怎麼影響我對未來教師生涯的想像？</h3>
+      </div>
+      <div class="a">
+        <p>
+          連老師花了好多年才考上的故事，讓我看清楚這是一場長跑，不是短衝。
+          跑完專題演講、行政見習、入班教學跟服務學習這一輪，我慢慢看懂資訊科技老師其實要同時撐住三塊：
+          教育上要把抽象的東西講到學生懂、行政上要推校務資訊化跟資安、科技上又得一直追新的東西。
+        </p>
+        <p class="muted">
+          講使命感可能有點太大，但對我來說目標變得比較清楚了：我想當的不只是把資訊知識教完的老師，
+          而是能帶著學生去面對未來那個被科技塞滿的世界的人。
+        </p>
+      </div>
+    </div>
 
-</div>
+    <!-- Q7 -->
+    <div class="qa">
+      <div class="q">
+        <span class="badge">7</span>
+        <h3>給老師的回饋，還有對之後課程的建議。</h3>
+      </div>
+      <div class="a">
+        <p>
+          先講優點：這門課最有價值的地方，是把一堆真實場域（觀議課、行政見習、入班教學、服務學習）
+          串成一條完整的線，理論跟實務的距離真的有被拉近。跟好幾所學校的老師合作，
+          也讓我們在不同學制、不同情境裡練判斷，這是光在教室裡聽講拿不到的。
+        </p>
+        <p>
+          如果要給一點建議的話，我會希望入班教學的時數可以再多一些，最好還能回訪，
+          這樣才看得到同一群學生的變化；教甄的實戰演練（限時上機、試教）也可以再多排一點，
+          畢竟那個現場壓力真的得練過才知道；最後是 AI 融入教學這塊，如果能多給一些差異化教材、
+          還有「鷹架式提示詞」的範例讓我們改，應該會蠻實用的。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 未來展望 -->
+<section class="fade">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">06 ／ 未來展望</div>
+      <h2>接下來想做的事</h2>
+    </div>
+    <div class="grid3">
+      <div class="mini"><h4><i class="fas fa-robot"></i>把 AI 教學再做深</h4><p>繼續磨「看懂程式」比「生出程式」更重要的這套設計，還有差異化教材。</p></div>
+      <div class="mini"><h4><i class="fas fa-shield-halved"></i>補資安的底子</h4><p>從網路架構、IP 配置到資安稽核流程，慢慢把資訊行政的基本功補起來。</p></div>
+      <div class="mini"><h4><i class="fas fa-code"></i>練程式跟演算法</h4><p>把 Python、資料結構、演算法練好，教甄跟教學現場都用得到。</p></div>
+      <div class="mini"><h4><i class="fas fa-diagram-project"></i>多做跨領域課</h4><p>延續在地化跟環境議題的經驗，再多做幾個跨領域的資訊課。</p></div>
+      <div class="mini"><h4><i class="fas fa-flask"></i>順便做點研究</h4><p>結合碩士的研究，繼續玩教學創新跟人機協作這塊。</p></div>
+      <div class="mini"><h4><i class="fas fa-graduation-cap"></i>認真準備教甄</h4><p>提早排時程，把專業科目跟試教、上機這些實戰練起來。</p></div>
+    </div>
+  </div>
 </section>
 
 <footer>
-© 2026 陳楷翔 Information Technology Teacher Portfolio
+  © 2026 陳楷翔 · Information Technology Teacher Portfolio<br>
+  國立彰化師範大學 資訊工程學系 · 資訊科技科教材教法及教學實習
 </footer>
 
-<button class="topbtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-<i class="fas fa-arrow-up"></i>
+<button class="topbtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部">
+  <i class="fas fa-arrow-up"></i>
 </button>
 
 <script>
 const obs=new IntersectionObserver(entries=>{
-entries.forEach(e=>{
-if(e.isIntersecting)e.target.classList.add('show');
-});
-});
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); obs.unobserve(e.target); }});
+},{threshold:.12});
 document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
 </script>
 
